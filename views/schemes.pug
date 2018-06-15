@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	
+	head
+		title
+		meta(name="viewport" content=" initial-scale=1")
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+
+	body
+		.row
+			#logo.col-md-8.col-sm-8.col-xs-12
+				h1.logo
+					a#logo(href="https://www.aicte-india.org/" title="Back To Home" rel="home")
+						img(src="https://www.aicte-india.org/sites/default/files/logo_updated_0.png" alt="Back To Home")
+		nav.navbar.navbar-default
+			ul.nav.navbar-nav
+				li
+					a(href="/")
+						span.glyphicon.glyphicon-home  
+						|  Home
+				li
+					a(href="schemes") Schemes
+				li
+					a(href="initiatives") Initiatives
+			ul.nav.navbar-nav.navbar-right
+				li
+					a(href="/Login")
+						span.glyphicon.glyphicon-log-in
+						|  Admin Login

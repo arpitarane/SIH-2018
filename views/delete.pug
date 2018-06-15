@@ -1,0 +1,67 @@
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		// <link rel="stylesheet" href="css/bootstrap.min.css" >
+		// Latest compiled and minified CSS
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+		// jQuery library
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		// Latest compiled JavaScript
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+		script(type="text/javascript" src="contact_form.js")
+		style.
+			<style>
+			input[type=text], select {
+			width: 100%;
+			padding: 40px 60px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			}
+			input[type=submit] {
+			width: 50%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+			input[type=submit]:hover {
+			background-color: #45a049;
+			}
+	body
+		.row
+			#logo.col-md-8.col-sm-8.col-xs-12
+				h1.logo
+					a#logo(href="/" title="Back To Home" rel="home")
+						img(src="https://www.aicte-india.org/sites/default/files/logo_updated_0.png" alt="Back To Home")
+		.container
+			h2 Enter the information 
+		form.form-horizontal(action="/deleted",method='POST')
+			.form-group
+				label.control-label.col-sm-2(for="state") State:
+				.col-sm-6
+					input#state.form-control(type="text" ,  placeholder="Enter State" , name="state")
+			.form-group
+				label.control-label.col-sm-2(for="institute_id") Institute_id:
+				.col-sm-6
+					input#institute_id.form-control(type="text" , placeholder="Enter Institute id" , name="institute_id")
+			.form-group
+				label.control-label.col-sm-2(for="institute_name") Scheme:
+				.col-sm-6
+					input#scheme.form-control(type="text" , placeholder="Enter Scheme" , name="scheme")
+			.form-group
+				label.control-label.col-sm-2(for="state") Sub Scheme:
+				.col-sm-6
+					input#sscheme.form-control(type="text" , placeholder="Enter Sub Scheme", name="sscheme")
+				br
+				br
+				br
+				.form-group
+					.col-sm-offset-4.col-sm-6
+						button.btn.btn-success(type="submit") Submit

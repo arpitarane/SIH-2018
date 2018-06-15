@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	table.table
+		thead
+			tr
+				th(scope="col") #
+				th(scope="col") Institute ID
+				th(scope="col") Institute Name
+				th(scope="col") State
+				th(scope="col") District
+				th(scope="col") City
+				th(scope="col") Scheme
+				th(scope="col") Sub Scheme
+				th(scope="col") Enrollments
+				th(scope="col") Start Date
+				th(scope="col") End Date              
+				
+				
+		tbody
+			each mscheme in mschemes
+				tr
+					th(scope="row") #{mscheme_id}
+					td #{mscheme.Institute_Permanent_ID}
+					td #{mscheme.Institute_Name}
+					td #{mscheme.state}
+					td #{mscheme.District}
+					td #{mscheme.City}
+					td #{mscheme.Scheme}
+					td #{mscheme.Sub_Scheme}
+					td #{mscheme.Enrollments}
+					td #{mscheme.Start_Date}
+					td #{mscheme.End_Date}
+					

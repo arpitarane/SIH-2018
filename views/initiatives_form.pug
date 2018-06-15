@@ -1,0 +1,52 @@
+html(lang='en')
+	head
+		title Initiative Form
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+	body
+		.container
+			#regbox.mainbox.col-8.col-md-offset-3.col-sm-8.col-sm-offset-2(style='margin-top:30px;margin-left:50px;margin-right:50px;')
+				form.form-horizontal(action='/initiative_form' , method='POST')
+					h2
+						center Initiative Registration Form
+					br
+					.form-group
+						label.control-label.col-sm-2 Initiative Id:
+						.col-sm-10.text-left
+							input.form-control(id='Initiative Id', placeholder='Initiative Id', name='id', required='')
+					br
+					.form-group
+						label.control-label.col-sm-2 Initiative Name:
+						.col-sm-10.text-left
+							input.form-control(id='Initiative Name', placeholder='Initiative Name', name='initiativename', required='')
+					br
+					.form-group
+						label.control-label.col-sm-2 Description:
+						.col-sm-10.text-left
+							textarea.form-control(name='career[message]', id='Initiative Description', tabindex='4', placeholder='Write your details', required='')
+							// <input  class="form-control" id="Initiative Description" placeholder="Initiative Description" name="description" required>
+							
+					br
+					.form-group
+						label.control-label.col-sm-2.text-left Sub Initiative:
+						.col-sm-10.text-left
+							input.form-control(id='Sub Initiative', placeholder='Sub Initiative', name='Subinitiativename', required='')
+					br
+					.form-group
+						label.control-label.col-sm-2 Description:
+						.col-sm-10.text-left
+							// <input  class="form-control" id="Initiative Description" placeholder="Sub Initiative Description" name="description" required>
+							textarea.form-control(name='career[message]', id='Initiative Description', tabindex='4', placeholder='Sub Initiative Description', required='')
+							
+					br
+					.form-group
+						label.control-label.col-sm-2.text-left Year of commencement:
+						.col-sm-10
+							input.form-control(id='start date', placeholder='start date', name='yearofcommencement', required='')
+					br
+					.form-group
+						.col-sm-12.col-sm-offset-5
+							button.btn.btn-success(type='submit') Submit

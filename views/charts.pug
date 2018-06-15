@@ -1,0 +1,79 @@
+extends layout
+
+block content
+	head
+		title
+		meta(name="viewport" content=" initial-scale=1")
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+		// Load the AJAX API
+		script(type="text/javascript" src="https://www.gstatic.com/charts/loader.js")
+		script(type="text/javascript").
+			// Load the Visualization API and the controls package.
+			google.charts.load('current', {'packages':['corechart', 'controls']});
+			// Set a callback to run when the Google Visualization API is loaded.
+			google.charts.setOnLoadCallback(drawDashboard);
+			// Callback that creates and populates a data table,
+			// instantiates a dashboard, a range slider and a pie chart,
+			// passes in the data and draws it.
+			function drawDashboard() {
+			// Create our data table.
+			var data = google.visualization.arrayToDataTable(
+			//require('./charts'))
+			
+			// Create a dashboard.
+			var dashboard = new google.visualization.Dashboard(
+			document.getElementById('dashboard_div'));
+			// Create a range slider, passing some options
+			var donutRangeSlider = new google.visualization.ControlWrapper({
+			'controlType': 'NumberRangeFilter',
+			'containerId': 'filter_div',
+			'options': {
+			'filterColumnLabel': 'Donuts eaten'
+			}
+			});
+			// Create a pie chart, passing some options
+			var pieChart = new google.visualization.ChartWrapper({
+			'chartType': 'PieChart',
+			'containerId': 'chart_div',
+			'options': {
+			'width': 300,
+			'height': 300,
+			'pieSliceText': 'value',
+			'legend': 'right'
+			}
+			});
+			// Establish dependencies, declaring that 'filter' drives 'pieChart',
+			// so that the pie chart will only display entries that are let through
+			// given the chosen slider range.
+			dashboard.bind(donutRangeSlider, pieChart);
+			// Draw the dashboard.
+			dashboard.draw(data);
+			}
+	body
+		.row
+			#logo.col-md-8.col-sm-8.col-xs-12
+				h1.logo
+					a#logo(href="https://www.aicte-india.org/" title="Back To Home" rel="home")
+						img(src="https://www.aicte-india.org/sites/default/files/logo_updated_0.png" alt="Back To Home")
+		nav.navbar.navbar-default
+			ul.nav.navbar-nav
+				li
+					a(href="https://www.aicte-india.org/")
+						span.glyphicon.glyphicon-home
+						|  Home
+				li
+					a(href="#") Schemes
+				li
+					a(href="#") Initiatives
+			ul.nav.navbar-nav.navbar-right
+				li
+					a(href="Login.html")
+						span.glyphicon.glyphicon-log-in
+						|  Admin Login
+		// Div that will hold the dashboard
+		#dashboard_div
+			// Divs that will hold each control and chart
+			#filter_div
+			#chart_div

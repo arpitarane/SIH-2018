@@ -1,0 +1,80 @@
+extends layout
+block content
+	head
+		style.
+			body { padding-top: 50px; }
+			#myCarousel .carousel-caption {
+			left:0;
+			right:0;
+			bottom:0;
+			text-align:center;
+			padding:10px;
+			background:rgb(0, 0, 0, 0.4);;
+			text-shadow:none;
+			}
+			.container {
+			margin-top: 10px;
+			}
+			.carousel-inner img {
+			width: 100%;
+			max-height: 460px
+			}
+			</head>
+	body
+		.row(style='margin: auto')
+			#logo.col-md-8.col-sm-8.col-xs-12
+				h1.logo
+					a#logo(href='/', title='Back To Home', rel='home')
+						img(src='https://www.aicte-india.org/sites/default/files/logo_updated_0.png', alt='Back To Home')
+			.col-md-4.col-sm-4.col-xs-12
+				nav(role='custom-dropdown')
+					nav.navbar.navbar-default(style='float:left ; margin:20px')
+						.navbar-header
+							button.navbar-toggle(type='button', data-toggle='collapse', data-target='#mynavbar')
+						#mynavbar.collapse.navbar-collapse
+							ul.nav.navbar-nav
+								li
+									a(href='https://www.aicte-india.org/')
+										span.glyphicon.glyphicon-home
+										|  Home
+								ul.nav.navbar-nav
+									li
+										a(href='Login.html')
+											span.glyphicon.glyphicon-log-in
+											| User Guide
+							ul.nav.navbar-nav
+								li
+									a(href='Login.html')
+										span.glyphicon.glyphicon-log-in
+										|  Admin Login
+		br
+		.container
+			h2
+				center User Guide
+			#myCarousel.carousel.slide(data-ride='carousel')
+				.carousel-inner
+					.item.active
+						img(src='1.png', style='width:100%;')
+						.carousel-caption
+							h2
+							p
+								font(color='black', size='6') Home Page 
+					.item
+						img(src='2.png', style='width:100%;')
+						.carousel-caption
+							h2
+							p
+								font(color='black', size='6') Click on the schemes to view schemes overview
+					.item
+						img(src='3.png', style='width:100%;')
+						.carousel-caption
+							h2
+							p
+								font(color='black', size='6') Apply filters to visualize according to state,university etc.
+					.item
+						img(src='4.png', style='width:100%;')
+						.carousel-caption
+							h2
+							p
+								font(color='black', size='6') Click on scheme details to view the deatiled visualization of the schemes.
+			br

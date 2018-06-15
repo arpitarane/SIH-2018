@@ -1,0 +1,64 @@
+extends layout
+
+block content
+	
+	head
+		title
+		meta(name='viewport', content=' initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		script(type='text/javascript', src='https://www.gstatic.com/charts/loader.js')
+	body
+		.row(style='margin: auto')
+			#logo.col-md-8.col-sm-8.col-xs-12
+				h1.logo
+					a#logo(href='/', title='Back To Home', rel='home')
+						img(src='https://www.aicte-india.org/sites/default/files/logo_updated_0.png', alt='Back To Home')
+			.col-md-4.col-sm-4.col-xs-12
+				nav.navbar.navbar-default(style='float:left ; margin:20px')
+					.navbar-header
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='#mynavbar')
+							span.glyphicon.glyphicon-tasks
+					#mynavbar.collapse.navbar-collapse
+						ul.nav.navbar-nav
+							li
+								a(href='/scheme_form')  Add Schemes
+							li
+				
+								a(href='/initiatives_form')  Add Initiative
+						
+				.pull-right
+					.col-md-4.col-sm-4.col-xs-12
+						ul.nav.navbar-nav
+							li
+								button#logout.btn.navbar-btn.btn-default(type='submit', name='logout', value='Log Out')
+									a(href='/')
+										span.glyphicon.glyphicon-log-in
+										|  Log Out
+
+
+		.container.text-center
+			.row.content
+				.col-sm-2.col-md-4.col-lg-6
+
+					#viz1522476477302.tableauPlaceholder(style='position: relative')
+							noscript
+								a(href='#')
+									img(alt=' ', src='https://public.tableau.com/static/images/AI/AICTE1_4/FundsDashboard/1_rss.png', style='border: none')
+							object.tableauViz(style='display:none;')
+								param(name='host_url', value='https%3A%2F%2Fpublic.tableau.com%2F')
+								param(name='embed_code_version', value='3')
+								param(name='site_root', value='')
+								param(name='name', value='AICTE1_4/FundsDashboard')
+								param(name='tabs', value='no')
+								param(name='toolbar', value='yes')
+								param(name='static_image', value='https://public.tableau.com/static/images/AI/AICTE1_4/FundsDashboard/1.png')
+								param(name='animate_transition', value='yes')
+								param(name='display_static_image', value='yes')
+								param(name='display_spinner', value='yes')
+								param(name='display_overlay', value='yes')
+								param(name='display_count', value='yes')
+								param(name='filter', value='publish=yes')
+					script(type='text/javascript').
+						var divElement = document.getElementById('viz1522476477302');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);

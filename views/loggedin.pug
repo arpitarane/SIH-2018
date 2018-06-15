@@ -1,0 +1,52 @@
+html
+    head
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        style.
+            button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 120px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            }
+            button:hover {
+            opacity: 0.8;
+            }
+            .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 70px;
+            }
+    body
+        .row(style="margin: auto")
+            #logo.col-md-8.col-sm-8.col-xs-12
+                h1.logo
+                    a#logo(href="/" title="Back To Home" rel="home")
+                        img(src="https://www.aicte-india.org/sites/default/files/logo_updated_0.png" alt="Back To Home")
+            .col-md-4.col-sm-4.col-xs-12
+                nav(role="custom-dropdown")
+                    // Advanced Checkbox Hack (see description below)
+                    // basic menu goes here
+                    nav.navbar.navbar-default(style="float:left ; margin:20px")
+                        .navbar-header
+                            //
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+                                </button>
+                        .center
+                            .container
+                                .btn-group-vertical
+                                    a.btn(href="/insert")
+                                        button.btn(type="button") Insert
+                                    br
+                                    a.btn(href="/viewschemes")
+                                        button.btn.btn-primary(type="button") View
+                                    br
+                                    a.btn(href="/update")
+                                        button.btn.btn-primary(type="button") Update
+                                    br
+                                    a.btn(href="/delete")
+                                        button.btn.btn-primary(type="button") Delete
+                                    br

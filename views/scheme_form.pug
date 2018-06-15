@@ -1,0 +1,57 @@
+html(lang='en')
+	head
+		title Scheme Form
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+	body
+		.container
+			#regbox.mainbox.col-8.col-md-offset-3.col-sm-8.col-sm-offset-2(style='margin-top:30px;margin-left:50px;margin-right:50px;')
+				form.form-horizontal(action='/scheme_form', method='POST')
+					h2
+						center Scheme Registration Form
+					br
+					.form-group
+						label.control-label.col-sm-2 Scheme Id:
+						.col-sm-10
+							input#id.form-control(placeholder='Scheme Id', name='id')
+					br
+					.form-group
+						label.control-label.col-sm-2 Scheme Name:
+						.col-sm-10
+							input#subschemename.form-control(placeholder='Scheme Name', name='schemename')
+					br
+					.form-group
+						label.control-label.col-sm-2 Description:
+						.col-sm-10
+							// <input  class="form-control" id="Scheme Description" placeholder="Scheme Description" name="description">
+							textarea.form-control.Description(name='career[message]', id='Scheme Description', tabindex='4', placeholder='Scheme Description', required='')
+							
+					br
+					.form-group
+						label.control-label.col-sm-2 Sub Scheme
+						.col-sm-10
+							input#subschemename.form-control(placeholder='Sub Scheme', name='subschemename', required='')
+					br
+					.form-group
+						label.control-label.col-sm-2 Description:
+						.col-sm-10
+							// <input  class="form-control" id="Scheme Description" placeholder="Sub Scheme Description" name="description">
+							textarea.form-control.Description(name='career[message]', id='Scheme Description', tabindex='4', placeholder='Sub Scheme Description', required='')
+							
+					br
+					.form-group
+						label.control-label.col-sm-2 Funds/Student
+						.col-sm-10
+							input#studentfunds.form-control(placeholder='Funds/Student', name='studentfunds')
+					br
+					.form-group
+						label.control-label.col-sm-2 Funds/University
+						.col-sm-10
+							input#universityfunds.form-control(placeholder='Funds/University', name='universityfunds')
+					br
+					.form-group
+						.col-sm-12.col-sm-offset-5
+							button.btn.btn-success(type='submit') Submit

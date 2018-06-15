@@ -1,0 +1,83 @@
+html
+    head
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        style.
+            body {font-family: Arial, Helvetica, sans-serif;}
+            form {border: 3px solid #f1f1f1;}
+            input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            }
+            button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 120px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            }
+            button:hover {
+            opacity: 0.8;
+            }
+            .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+            }
+            .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            }
+            img.avatar {
+            width: 40%;
+            border-radius: 50%;
+            }
+            .container {
+            padding: 120px;
+            }
+            span.psw {
+            float: right;
+            padding-top: 20px;
+            }
+            /* Change styles for span and cancel button on extra small screens */
+            @media screen and (max-width: 300px) {
+            span.psw {
+            display: block;
+            float: none;
+            }
+            .cancelbtn {
+            width: 100%;
+            }
+            }
+    body
+        .row(style="margin: auto")
+            #logo.col-md-8.col-sm-8.col-xs-12
+                h1.logo
+                    a#logo(href="/" title="Back To Home" rel="home")
+                        img(src="https://www.aicte-india.org/sites/default/files/logo_updated_0.png" alt="Back To Home")
+            .col-md-4.col-sm-4.col-xs-12
+                nav(role="custom-dropdown")
+                    // Advanced Checkbox Hack (see description below)
+                    // basic menu goes here
+                    nav.navbar.navbar-default(style="float:left ; margin:20px")
+                        .navbar-header
+                            //
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+                                </button>
+                        h2 Login Form
+                        form(action="/loggedin" , method='POST')
+                            .container
+                                label(for="username")
+                                    b Username
+                                input(type="text" placeholder="Enter Username" name="username" required="")
+                                label(for="password")
+                                    b Password
+                                input(type="password" placeholder="Enter Password" name="password" required="")
+                                a.btn(href="loggedin")
+                                    button.btn(type="submit") Login
+

@@ -1,0 +1,52 @@
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        // <link rel="stylesheet" href="css/bootstrap.min.css" >
+        // Latest compiled and minified CSS
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        // jQuery library
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        // Latest compiled JavaScript
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+        script(type="text/javascript" src="contact_form.js")
+        style.
+            .center {
+            margin: auto;
+            width: 30%;
+            border: 3px solid #73AD21;
+            padding: 30px;
+            }
+            button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 800px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            }
+            button:hover {
+            opacity: 0.8;
+            }
+    body
+        .row
+            #logo.col-md-8.col-sm-8.col-xs-12
+                h1.logo
+                    a#logo(href="/" title="Back To Home" rel="home")
+                        img(src="https://www.aicte-india.org/sites/default/files/logo_updated_0.png" alt="Back To Home")
+        .container
+            h2 Click on any button below to view the information!!!
+        .center
+            .container
+                .btn-group-vertical
+                    a.btn(href="/viewmaharashtra")
+                        button.btn.btn-primary(type="button") Maharashtra
+                    br
+                    a.btn(href="/viewtamilnadu")
+                        button.btn.btn-primary(type="button") Tamil Nadu
+                    br
+                    a.btn(href="/viewuttarpradesh")
+                        button.btn.btn-primary(type="button") Uttar Pradesh
+                    br
+

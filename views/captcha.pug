@@ -1,0 +1,139 @@
+extends layout
+block content
+
+	head
+	    
+		title Login Page
+		title Login Template
+		meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+		meta(name='HandheldFriendly', content='true')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+		link(rel='stylesheet', href='bootlogin.css')
+		script(src='http://code.jquery.com/jquery-1.11.0.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+		script(type='text/javascript').
+			function Captcha(){
+			var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+			var i;
+			for (i=0;i<6;i++)
+			{
+			var a = alpha[Math.floor(Math.random() * alpha.length)];
+			var b = alpha[Math.floor(Math.random() * alpha.length)];
+			var c = alpha[Math.floor(Math.random() * alpha.length)];
+			var d = alpha[Math.floor(Math.random() * alpha.length)];
+			var e = alpha[Math.floor(Math.random() * alpha.length)];
+			var f = alpha[Math.floor(Math.random() * alpha.length)];
+			var g = alpha[Math.floor(Math.random() * alpha.length)];
+			}
+			var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+			document.getElementById("mainCaptcha").value = code
+			}
+			function ValidCaptcha()
+			{
+			var btn;
+			var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+			var string2 = removeSpaces(document.getElementById('txtInput').value);
+			if (string1 == string2)
+			{
+			return btn="valid captcha";
+			}
+			else if((string2=="")||(string2==null))
+			{
+			alert("Enter the captcha!");
+			}
+			else
+			{
+			return btn="Invalid captcha";
+			}
+			}
+			function removeSpaces(string)
+			{
+			return string.split(' ').join('');
+			}
+			function login(){
+			var btn;
+			var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+			var string2 = removeSpaces(document.getElementById('txtInput').value);
+			var string3 =  document.getElementById('login-username').value;
+			var string4 =  document.getElementById('login-password').value;
+			if((string3=="") && (string4=="") && (string2==""))
+			{
+			alert("Enter username");
+			}
+			else if((string4=="") && (string2==""))
+			{
+			alert("Enter password");
+			}
+			else if((string2=="")||(string2==null))
+			{
+			alert("Enter the captcha!");
+			}
+			else if(string1!=string2)
+			{
+			alert("Invalid captcha");
+			}
+			else return window.location="/login";
+			}
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script.
+			// <![CDATA[
+			$(document).ready(function(){
+			var from,to,subject,text;
+			$("#send_email").click(function(){
+			to=$("#to").val();
+			subject=$("#subject").val();
+			text=$("#content").val();
+			$("#message").text("Sending E-mail...Please wait");
+			$.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
+			if(data=="sent")
+			{
+			$("#message").empty().html("
+			Email is been sent at "+to+" . Please check inbox!
+			");
+			}
+			});
+			});
+			});
+
+	body(onload='Captcha();')
+		form(action="/login" method='POST')
+			.container.bg
+				#loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-2.loginbox
+					.panel.panel-info
+						.panel-heading
+							.panel-title  Sign In 
+						br
+						.input-group.margT25
+							span.input-group-addon
+								i.glyphicon.glyphicon-user
+							input#login-username.form-control(type='text', name='username', value='', placeholder='username or email')
+						br
+						br
+						.input-group.margT25
+							span.input-group-addon
+								i.glyphicon.glyphicon-lock
+							input#login-password.form-control(type='password', name='password', placeholder='password')
+						br
+						table(align='center')
+							tr
+								td
+									input#mainCaptcha.form-control(type='text')
+								td
+									button#refresh.btn.btn-info(type='button', value='Refresh', onclick='Captcha();') Refresh
+							tr
+								td
+									br
+							tr
+								td
+									input#txtInput.form-control(type='text', required='')
+							tr
+								td
+									br
+							tr
+								td
+									button#Button1.btn.btn-info(type='button', value='Check', onclick='alert(ValidCaptcha());') Check
+						br
+						.form-group.margT10
+							.col-sm-12.controls
+								a#btn-login.btn.btn-block.btn-success(type="submit" onclick='login();') Login 
